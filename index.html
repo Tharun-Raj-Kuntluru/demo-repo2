@@ -1,0 +1,193 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CampusNet Planner - Network Design Solutions</title>
+    <link rel="stylesheet" href="css/style.css">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+</head>
+<body>
+    <nav class="navbar">
+        <div class="nav-container">
+            <div class="nav-logo">
+                <i class="fas fa-network-wired"></i>
+                <span>CampusNet Planner</span>
+            </div>
+            <div class="nav-menu">
+                <a href="#home" class="nav-link">Home</a>
+                <a href="#services" class="nav-link">Services</a>
+                <a href="#about" class="nav-link">About</a>
+                <a href="#contact" class="nav-link">Contact</a>
+                <button class="login-btn" onclick="showLoginModal()">Login</button>
+            </div>
+        </div>
+    </nav>
+
+    <main>
+        <section id="home" class="hero">
+            <div class="hero-content">
+                <h1>Professional Network Design for Educational Institutions</h1>
+                <p>Streamline your campus network planning with our comprehensive design platform. From initial requirements to final implementation, we've got you covered.</p>
+                <div class="cta-buttons">
+                    <button class="btn btn-primary" onclick="showLoginModal()">Get Started</button>
+                    <button class="btn btn-secondary" onclick="scrollToSection('services')">Learn More</button>
+                </div>
+            </div>
+            <div class="hero-visual">
+                <div class="network-diagram">
+                    <div class="network-node main-hub"></div>
+                    <div class="network-node node-1"></div>
+                    <div class="network-node node-2"></div>
+                    <div class="network-node node-3"></div>
+                    <div class="network-connection conn-1"></div>
+                    <div class="network-connection conn-2"></div>
+                    <div class="network-connection conn-3"></div>
+                </div>
+            </div>
+        </section>
+
+        <section id="services" class="services">
+            <div class="container">
+                <h2>Our Services</h2>
+                <div class="services-grid">
+                    <div class="service-card">
+                        <i class="fas fa-clipboard-list"></i>
+                        <h3>Design Requests</h3>
+                        <p>Submit detailed network requirements through our streamlined request form.</p>
+                    </div>
+                    <div class="service-card">
+                        <i class="fas fa-project-diagram"></i>
+                        <h3>Network Architecture</h3>
+                        <p>Expert architects design comprehensive network topologies tailored to your needs.</p>
+                    </div>
+                    <div class="service-card">
+                        <i class="fas fa-chart-line"></i>
+                        <h3>Real-time Tracking</h3>
+                        <p>Monitor project progress with live status updates and milestone notifications.</p>
+                    </div>
+                    <div class="service-card">
+                        <i class="fas fa-users-cog"></i>
+                        <h3>Project Management</h3>
+                        <p>Efficient workflow management with dedicated administrator oversight.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="about" class="about">
+            <div class="container">
+                <div class="about-content">
+                    <div class="about-text">
+                        <h2>About CampusNet Planner</h2>
+                        <p>We specialize in creating robust, scalable network solutions for educational institutions. Our platform connects IT directors with expert network architects to deliver comprehensive design plans that meet the unique needs of modern campuses.</p>
+                        <div class="stats">
+                            <div class="stat">
+                                <span class="stat-number">500+</span>
+                                <span class="stat-label">Projects Completed</span>
+                            </div>
+                            <div class="stat">
+                                <span class="stat-number">150+</span>
+                                <span class="stat-label">Educational Partners</span>
+                            </div>
+                            <div class="stat">
+                                <span class="stat-number">99%</span>
+                                <span class="stat-label">Client Satisfaction</span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="about-image">
+                        <div class="placeholder-image">
+                            <i class="fas fa-university"></i>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="contact" class="contact">
+            <div class="container">
+                <h2>Get In Touch</h2>
+                <div class="contact-content">
+                    <div class="contact-info">
+                        <div class="contact-item">
+                            <i class="fas fa-envelope"></i>
+                            <span>support@campusnet-planner.com</span>
+                        </div>
+                        <div class="contact-item">
+                            <i class="fas fa-phone"></i>
+                            <span>+1 (555) 123-4567</span>
+                        </div>
+                        <div class="contact-item">
+                            <i class="fas fa-map-marker-alt"></i>
+                            <span>123 Network Street, Tech City, TC 12345</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- Login Modal -->
+    <div id="loginModal" class="modal">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h2>Login to CampusNet Planner</h2>
+                <span class="close" onclick="hideLoginModal()">&times;</span>
+            </div>
+            <div class="modal-body">
+                <div class="login-tabs">
+                    <button class="tab-btn active" onclick="switchTab('client')">Client</button>
+                    <button class="tab-btn" onclick="switchTab('admin')">Administrator</button>
+                    <button class="tab-btn" onclick="switchTab('architect')">Network Architect</button>
+                </div>
+                <form class="login-form" id="loginForm">
+                    <div class="form-group">
+                        <label for="email">Email</label>
+                        <input type="email" id="email" name="email" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="password">Password</label>
+                        <input type="password" id="password" name="password" required>
+                    </div>
+                    <button type="submit" class="btn btn-primary full-width">Login</button>
+                </form>
+                <div class="demo-login">
+                    <p>Demo Accounts:</p>
+                    <div class="demo-buttons">
+                        <button class="btn btn-outline" onclick="loginDemo('client')">Client Demo</button>
+                        <button class="btn btn-outline" onclick="loginDemo('admin')">Admin Demo</button>
+                        <button class="btn btn-outline" onclick="loginDemo('architect')">Architect Demo</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-brand">
+                    <i class="fas fa-network-wired"></i>
+                    <span>CampusNet Planner</span>
+                </div>
+                <div class="footer-links">
+                    <a href="#">Privacy Policy</a>
+                    <a href="#">Terms of Service</a>
+                    <a href="#">Support</a>
+                </div>
+                <div class="footer-social">
+                    <a href="#"><i class="fab fa-linkedin"></i></a>
+                    <a href="#"><i class="fab fa-twitter"></i></a>
+                    <a href="#"><i class="fab fa-facebook"></i></a>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2024 CampusNet Planner. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="js/main.js"></script>
+</body>
+</html>

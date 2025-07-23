@@ -1,0 +1,422 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Submit Design Request - CampusNet Planner</title>
+    <link rel="stylesheet" href="../css/style.css">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+</head>
+<body class="dashboard">
+    <nav class="navbar">
+        <div class="nav-container">
+            <div class="nav-logo">
+                <i class="fas fa-network-wired"></i>
+                <span>CampusNet Planner</span>
+            </div>
+            <div class="nav-menu">
+                <a href="client-dashboard.html" class="nav-link">Dashboard</a>
+                <a href="#" class="nav-link active">New Request</a>
+                <a href="#" class="nav-link">My Projects</a>
+                <div class="user-info">
+                    <span class="user-name">Dr. Jennifer Wilson</span>
+                    <div class="user-avatar">J</div>
+                    <button class="btn btn-outline btn-sm" onclick="logout()">Logout</button>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <div class="dashboard-header">
+        <div class="container">
+            <div class="dashboard-title">
+                <div>
+                    <h1>Submit Network Design Request</h1>
+                    <p>Provide detailed requirements for your campus network project</p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="dashboard-content">
+        <div class="form-container">
+            <div class="dashboard-card">
+                <div class="card-header">
+                    <h3 class="card-title">Project Information</h3>
+                    <p class="card-subtitle">Basic details about your network design project</p>
+                </div>
+                
+                <form id="designRequestForm" class="design-form">
+                    <div class="form-section">
+                        <h4>Institution Details</h4>
+                        <div class="form-row">
+                            <div class="form-group">
+                                <label for="institutionName">Institution Name</label>
+                                <input type="text" id="institutionName" name="institutionName" required>
+                            </div>
+                            <div class="form-group">
+                                <label for="institutionType">Institution Type</label>
+                                <select id="institutionType" name="institutionType" required>
+                                    <option value="">Select type...</option>
+                                    <option value="university">University</option>
+                                    <option value="college">College</option>
+                                    <option value="community-college">Community College</option>
+                                    <option value="k12">K-12 School</option>
+                                    <option value="vocational">Vocational School</option>
+                                    <option value="other">Other</option>
+                                </select>
+                            </div>
+                        </div>
+                        <div class="form-row">
+                            <div class="form-group">
+                                <label for="contactPerson">Primary Contact</label>
+                                <input type="text" id="contactPerson" name="contactPerson" required>
+                            </div>
+                            <div class="form-group">
+                                <label for="contactEmail">Contact Email</label>
+                                <input type="email" id="contactEmail" name="contactEmail" required>
+                            </div>
+                        </div>
+                        <div class="form-row">
+                            <div class="form-group">
+                                <label for="phoneNumber">Phone Number</label>
+                                <input type="tel" id="phoneNumber" name="phoneNumber">
+                            </div>
+                            <div class="form-group">
+                                <label for="department">Department</label>
+                                <input type="text" id="department" name="department" placeholder="e.g., IT Services, Technology">
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="form-section">
+                        <h4>Project Details</h4>
+                        <div class="form-group">
+                            <label for="projectTitle">Project Title</label>
+                            <input type="text" id="projectTitle" name="projectTitle" required placeholder="e.g., Main Campus Network Upgrade">
+                        </div>
+                        <div class="form-group">
+                            <label for="projectDescription">Project Description</label>
+                            <textarea id="projectDescription" name="projectDescription" rows="4" required placeholder="Provide a detailed description of your network design requirements..."></textarea>
+                        </div>
+                        <div class="form-row">
+                            <div class="form-group">
+                                <label for="projectType">Project Type</label>
+                                <select id="projectType" name="projectType" required>
+                                    <option value="">Select type...</option>
+                                    <option value="new-installation">New Installation</option>
+                                    <option value="upgrade">Network Upgrade</option>
+                                    <option value="expansion">Network Expansion</option>
+                                    <option value="modernization">Infrastructure Modernization</option>
+                                    <option value="security-enhancement">Security Enhancement</option>
+                                    <option value="wifi-deployment">Wi-Fi Deployment</option>
+                                    <option value="datacenter">Data Center</option>
+                                    <option value="other">Other</option>
+                                </select>
+                            </div>
+                            <div class="form-group">
+                                <label for="priority">Priority Level</label>
+                                <select id="priority" name="priority" required>
+                                    <option value="">Select priority...</option>
+                                    <option value="low">Low</option>
+                                    <option value="medium">Medium</option>
+                                    <option value="high">High</option>
+                                    <option value="urgent">Urgent</option>
+                                </select>
+                            </div>
+                        </div>
+                        <div class="form-row">
+                            <div class="form-group">
+                                <label for="budget">Estimated Budget</label>
+                                <select id="budget" name="budget" required>
+                                    <option value="">Select budget range...</option>
+                                    <option value="under-50k">Under $50,000</option>
+                                    <option value="50k-100k">$50,000 - $100,000</option>
+                                    <option value="100k-250k">$100,000 - $250,000</option>
+                                    <option value="250k-500k">$250,000 - $500,000</option>
+                                    <option value="500k-1m">$500,000 - $1,000,000</option>
+                                    <option value="over-1m">Over $1,000,000</option>
+                                </select>
+                            </div>
+                            <div class="form-group">
+                                <label for="timeline">Desired Timeline</label>
+                                <select id="timeline" name="timeline" required>
+                                    <option value="">Select timeline...</option>
+                                    <option value="asap">ASAP</option>
+                                    <option value="1-month">Within 1 month</option>
+                                    <option value="3-months">Within 3 months</option>
+                                    <option value="6-months">Within 6 months</option>
+                                    <option value="1-year">Within 1 year</option>
+                                    <option value="flexible">Flexible</option>
+                                </select>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="form-section">
+                        <h4>Technical Requirements</h4>
+                        <div class="form-row">
+                            <div class="form-group">
+                                <label for="userCount">Number of Users</label>
+                                <input type="number" id="userCount" name="userCount" min="1" required placeholder="e.g., 5000">
+                            </div>
+                            <div class="form-group">
+                                <label for="deviceCount">Number of Devices</label>
+                                <input type="number" id="deviceCount" name="deviceCount" min="1" placeholder="e.g., 10000">
+                            </div>
+                        </div>
+                        <div class="form-row">
+                            <div class="form-group">
+                                <label for="bandwidthRequirement">Bandwidth Requirement</label>
+                                <select id="bandwidthRequirement" name="bandwidthRequirement" required>
+                                    <option value="">Select bandwidth...</option>
+                                    <option value="100mbps">100 Mbps</option>
+                                    <option value="1gbps">1 Gbps</option>
+                                    <option value="10gbps">10 Gbps</option>
+                                    <option value="100gbps">100 Gbps</option>
+                                    <option value="custom">Custom Requirement</option>
+                                </select>
+                            </div>
+                            <div class="form-group">
+                                <label for="networkSize">Network Coverage Area</label>
+                                <select id="networkSize" name="networkSize" required>
+                                    <option value="">Select coverage...</option>
+                                    <option value="single-building">Single Building</option>
+                                    <option value="multiple-buildings">Multiple Buildings</option>
+                                    <option value="campus-wide">Campus-wide</option>
+                                    <option value="multi-campus">Multi-campus</option>
+                                </select>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label>Required Services (Check all that apply)</label>
+                            <div class="checkbox-group">
+                                <label class="checkbox-item">
+                                    <input type="checkbox" name="services" value="wired-network">
+                                    <span class="checkmark"></span>
+                                    Wired Network Infrastructure
+                                </label>
+                                <label class="checkbox-item">
+                                    <input type="checkbox" name="services" value="wireless-network">
+                                    <span class="checkmark"></span>
+                                    Wireless Network (Wi-Fi)
+                                </label>
+                                <label class="checkbox-item">
+                                    <input type="checkbox" name="services" value="security-systems">
+                                    <span class="checkmark"></span>
+                                    Security Systems
+                                </label>
+                                <label class="checkbox-item">
+                                    <input type="checkbox" name="services" value="voip">
+                                    <span class="checkmark"></span>
+                                    VoIP/Telephony
+                                </label>
+                                <label class="checkbox-item">
+                                    <input type="checkbox" name="services" value="video-conferencing">
+                                    <span class="checkmark"></span>
+                                    Video Conferencing
+                                </label>
+                                <label class="checkbox-item">
+                                    <input type="checkbox" name="services" value="surveillance">
+                                    <span class="checkmark"></span>
+                                    Surveillance Systems
+                                </label>
+                                <label class="checkbox-item">
+                                    <input type="checkbox" name="services" value="access-control">
+                                    <span class="checkmark"></span>
+                                    Access Control
+                                </label>
+                                <label class="checkbox-item">
+                                    <input type="checkbox" name="services" value="datacenter">
+                                    <span class="checkmark"></span>
+                                    Data Center Infrastructure
+                                </label>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="form-section">
+                        <h4>Infrastructure Details</h4>
+                        <div class="form-group">
+                            <label for="existingInfrastructure">Existing Infrastructure</label>
+                            <textarea id="existingInfrastructure" name="existingInfrastructure" rows="3" placeholder="Describe your current network infrastructure, equipment, and any constraints..."></textarea>
+                        </div>
+                        <div class="form-group">
+                            <label for="specialRequirements">Special Requirements</label>
+                            <textarea id="specialRequirements" name="specialRequirements" rows="3" placeholder="Any special requirements, compliance needs, or unique challenges..."></textarea>
+                        </div>
+                        <div class="form-row">
+                            <div class="form-group">
+                                <label for="redundancy">Redundancy Requirements</label>
+                                <select id="redundancy" name="redundancy">
+                                    <option value="">Select redundancy level...</option>
+                                    <option value="none">No redundancy required</option>
+                                    <option value="basic">Basic redundancy</option>
+                                    <option value="high">High availability</option>
+                                    <option value="mission-critical">Mission critical (99.99% uptime)</option>
+                                </select>
+                            </div>
+                            <div class="form-group">
+                                <label for="scalability">Future Scalability</label>
+                                <select id="scalability" name="scalability">
+                                    <option value="">Select scalability needs...</option>
+                                    <option value="none">No future expansion planned</option>
+                                    <option value="moderate">Moderate growth expected</option>
+                                    <option value="high">High growth expected</option>
+                                    <option value="very-high">Significant expansion planned</option>
+                                </select>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="form-section">
+                        <h4>Additional Information</h4>
+                        <div class="form-group">
+                            <label for="preferredVendors">Preferred Vendors/Equipment</label>
+                            <input type="text" id="preferredVendors" name="preferredVendors" placeholder="e.g., Cisco, Juniper, HP, etc.">
+                        </div>
+                        <div class="form-group">
+                            <label for="complianceRequirements">Compliance Requirements</label>
+                            <textarea id="complianceRequirements" name="complianceRequirements" rows="2" placeholder="FERPA, HIPAA, SOX, or other compliance requirements..."></textarea>
+                        </div>
+                        <div class="form-group">
+                            <label for="additionalNotes">Additional Notes</label>
+                            <textarea id="additionalNotes" name="additionalNotes" rows="3" placeholder="Any additional information that would help us understand your requirements..."></textarea>
+                        </div>
+                    </div>
+
+                    <div class="form-section">
+                        <h4>File Attachments</h4>
+                        <div class="form-group">
+                            <label for="attachments">Supporting Documents</label>
+                            <div class="file-upload-area">
+                                <input type="file" id="attachments" name="attachments" multiple accept=".pdf,.doc,.docx,.xls,.xlsx,.png,.jpg,.jpeg">
+                                <div class="file-upload-content">
+                                    <i class="fas fa-cloud-upload-alt"></i>
+                                    <p>Drag and drop files here or click to browse</p>
+                                    <small>Supported formats: PDF, Word, Excel, Images (Max 10MB each)</small>
+                                </div>
+                            </div>
+                            <div id="fileList" class="file-list"></div>
+                        </div>
+                    </div>
+
+                    <div class="form-actions">
+                        <button type="button" class="btn btn-secondary" onclick="saveDraft()">Save as Draft</button>
+                        <button type="submit" class="btn btn-primary">Submit Request</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+
+    <script src="../js/main.js"></script>
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            // Check if user is logged in and has client role
+            const storedUser = localStorage.getItem('campusnet_user');
+            if (!storedUser) {
+                window.location.href = '../index.html';
+                return;
+            }
+            
+            currentUser = JSON.parse(storedUser);
+            if (currentUser.role !== 'client') {
+                window.location.href = '../index.html';
+                return;
+            }
+            
+            initializeForm();
+        });
+
+        function initializeForm() {
+            // Pre-fill contact information if available
+            if (currentUser && currentUser.email) {
+                document.getElementById('contactEmail').value = currentUser.email;
+            }
+
+            // File upload handling
+            const fileInput = document.getElementById('attachments');
+            const fileList = document.getElementById('fileList');
+            
+            fileInput.addEventListener('change', handleFileUpload);
+            
+            // Form submission
+            document.getElementById('designRequestForm').addEventListener('submit', handleFormSubmission);
+        }
+
+        function handleFileUpload(event) {
+            const files = event.target.files;
+            const fileList = document.getElementById('fileList');
+            
+            fileList.innerHTML = '';
+            
+            for (let i = 0; i < files.length; i++) {
+                const file = files[i];
+                const fileItem = document.createElement('div');
+                fileItem.className = 'file-item';
+                fileItem.innerHTML = `
+                    <i class="fas fa-file"></i>
+                    <span>${file.name}</span>
+                    <span class="file-size">(${formatFileSize(file.size)})</span>
+                    <button type="button" onclick="removeFile(${i})" class="remove-file">
+                        <i class="fas fa-times"></i>
+                    </button>
+                `;
+                fileList.appendChild(fileItem);
+            }
+        }
+
+        function formatFileSize(bytes) {
+            if (bytes === 0) return '0 Bytes';
+            const k = 1024;
+            const sizes = ['Bytes', 'KB', 'MB', 'GB'];
+            const i = Math.floor(Math.log(bytes) / Math.log(k));
+            return parseFloat((bytes / Math.pow(k, i)).toFixed(2)) + ' ' + sizes[i];
+        }
+
+        function removeFile(index) {
+            // This would remove the file from the input in a real implementation
+            showNotification('File removed', 'info');
+        }
+
+        function handleFormSubmission(event) {
+            event.preventDefault();
+            
+            if (!validateForm(event.target)) {
+                showNotification('Please fill in all required fields', 'error');
+                return;
+            }
+            
+            // Show loading state
+            const submitBtn = event.target.querySelector('button[type="submit"]');
+            const originalText = submitBtn.innerHTML;
+            submitBtn.innerHTML = '<i class="fas fa-spinner fa-spin"></i> Submitting...';
+            submitBtn.disabled = true;
+            
+            // Simulate form submission
+            setTimeout(() => {
+                showNotification('Your design request has been submitted successfully!', 'success');
+                
+                // Reset form
+                event.target.reset();
+                document.getElementById('fileList').innerHTML = '';
+                
+                // Restore button
+                submitBtn.innerHTML = originalText;
+                submitBtn.disabled = false;
+                
+                // Redirect to dashboard after delay
+                setTimeout(() => {
+                    window.location.href = 'client-dashboard.html';
+                }, 2000);
+            }, 2000);
+        }
+
+        function saveDraft() {
+            showNotification('Draft saved successfully!', 'success');
+            // In a real implementation, this would save the form data
+        }
+    </script>
+</body>
+</html>

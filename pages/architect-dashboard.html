@@ -1,0 +1,389 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Network Architect Dashboard - CampusNet Planner</title>
+    <link rel="stylesheet" href="../css/style.css">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+</head>
+<body class="dashboard">
+    <nav class="navbar">
+        <div class="nav-container">
+            <div class="nav-logo">
+                <i class="fas fa-network-wired"></i>
+                <span>CampusNet Planner</span>
+            </div>
+            <div class="nav-menu">
+                <a href="#" class="nav-link">Dashboard</a>
+                <a href="#" class="nav-link">My Projects</a>
+                <a href="#" class="nav-link">Design Tools</a>
+                <a href="#" class="nav-link">Resources</a>
+                <div class="user-info">
+                    <span class="user-name">Sarah Rodriguez</span>
+                    <div class="user-avatar">S</div>
+                    <button class="btn btn-outline btn-sm" onclick="logout()">Logout</button>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <div class="dashboard-header">
+        <div class="container">
+            <div class="dashboard-title">
+                <div>
+                    <h1>Network Architect Dashboard</h1>
+                    <p>Welcome back, <span class="user-name">Sarah Rodriguez</span> - <span class="user-role">Senior Network Architect</span></p>
+                </div>
+                <div class="header-actions">
+                    <button class="btn btn-secondary">
+                        <i class="fas fa-tools"></i> Design Tools
+                    </button>
+                    <button class="btn btn-primary">
+                        <i class="fas fa-file-alt"></i> Create Design
+                    </button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="dashboard-content">
+        <div class="dashboard-grid">
+            <div class="dashboard-card">
+                <div class="card-header">
+                    <div>
+                        <h3 class="card-title">My Projects</h3>
+                        <div class="card-value" id="my-projects">4</div>
+                    </div>
+                    <i class="fas fa-briefcase card-icon"></i>
+                </div>
+                <p class="card-description">Currently assigned to me</p>
+            </div>
+
+            <div class="dashboard-card">
+                <div class="card-header">
+                    <div>
+                        <h3 class="card-title">Active Designs</h3>
+                        <div class="card-value" id="active-designs">2</div>
+                    </div>
+                    <i class="fas fa-pencil-ruler card-icon"></i>
+                </div>
+                <p class="card-description">In design phase</p>
+            </div>
+
+            <div class="dashboard-card">
+                <div class="card-header">
+                    <div>
+                        <h3 class="card-title">This Month</h3>
+                        <div class="card-value">7</div>
+                    </div>
+                    <i class="fas fa-check-circle card-icon"></i>
+                </div>
+                <p class="card-description">Projects completed</p>
+            </div>
+
+            <div class="dashboard-card">
+                <div class="card-header">
+                    <div>
+                        <h3 class="card-title">Avg. Rating</h3>
+                        <div class="card-value">4.9</div>
+                    </div>
+                    <i class="fas fa-star card-icon"></i>
+                </div>
+                <p class="card-description">Client satisfaction</p>
+            </div>
+        </div>
+
+        <div class="dashboard-card">
+            <div class="card-header">
+                <h3 class="card-title">My Assigned Projects</h3>
+                <div class="card-actions">
+                    <button class="btn btn-outline btn-sm">
+                        <i class="fas fa-sort"></i> Sort by Deadline
+                    </button>
+                    <button class="btn btn-outline btn-sm">
+                        <i class="fas fa-filter"></i> Filter
+                    </button>
+                </div>
+            </div>
+            
+            <div class="table-container">
+                <table class="data-table project-table">
+                    <thead>
+                        <tr>
+                            <th>Project ID</th>
+                            <th>Title</th>
+                            <th>Client</th>
+                            <th>Status</th>
+                            <th>Deadline</th>
+                            <th>Phase</th>
+                            <th>Actions</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <!-- Dynamic content loaded via JavaScript -->
+                    </tbody>
+                </table>
+            </div>
+        </div>
+
+        <div class="dashboard-grid">
+            <div class="dashboard-card">
+                <div class="card-header">
+                    <h3 class="card-title">Current Design Progress</h3>
+                    <i class="fas fa-chart-line card-icon"></i>
+                </div>
+                <div class="progress-container">
+                    <div class="progress-item">
+                        <div class="progress-header">
+                            <span>Admin Building Renovation</span>
+                            <span>75%</span>
+                        </div>
+                        <div class="progress-bar">
+                            <div class="progress-fill" style="width: 75%"></div>
+                        </div>
+                        <div class="progress-phase">Design Phase - Network Topology</div>
+                    </div>
+                    <div class="progress-item">
+                        <div class="progress-header">
+                            <span>Campus Security Upgrade</span>
+                            <span>30%</span>
+                        </div>
+                        <div class="progress-bar">
+                            <div class="progress-fill" style="width: 30%"></div>
+                        </div>
+                        <div class="progress-phase">Planning Phase - Requirements Analysis</div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="dashboard-card">
+                <div class="card-header">
+                    <h3 class="card-title">Upcoming Deadlines</h3>
+                    <i class="fas fa-calendar-alt card-icon"></i>
+                </div>
+                <div class="deadline-list">
+                    <div class="deadline-item urgent">
+                        <div class="deadline-date">
+                            <span class="date">Feb 28</span>
+                            <span class="time">3 days left</span>
+                        </div>
+                        <div class="deadline-info">
+                            <h4>Admin Building Renovation</h4>
+                            <p>Final design submission</p>
+                        </div>
+                        <div class="deadline-status">
+                            <span class="status-badge status-urgent">Urgent</span>
+                        </div>
+                    </div>
+                    <div class="deadline-item normal">
+                        <div class="deadline-date">
+                            <span class="date">Mar 31</span>
+                            <span class="time">1 month left</span>
+                        </div>
+                        <div class="deadline-info">
+                            <h4>Security Upgrade</h4>
+                            <p>Initial design draft</p>
+                        </div>
+                        <div class="deadline-status">
+                            <span class="status-badge status-medium">Medium</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="dashboard-grid">
+            <div class="dashboard-card">
+                <div class="card-header">
+                    <h3 class="card-title">Design Tools</h3>
+                    <i class="fas fa-tools card-icon"></i>
+                </div>
+                <div class="tools-grid">
+                    <div class="tool-item" onclick="openDesignTool('topology')">
+                        <i class="fas fa-project-diagram"></i>
+                        <h4>Network Topology Designer</h4>
+                        <p>Create and edit network diagrams</p>
+                    </div>
+                    <div class="tool-item" onclick="openDesignTool('calculator')">
+                        <i class="fas fa-calculator"></i>
+                        <h4>Bandwidth Calculator</h4>
+                        <p>Calculate network requirements</p>
+                    </div>
+                    <div class="tool-item" onclick="openDesignTool('validator')">
+                        <i class="fas fa-check-double"></i>
+                        <h4>Design Validator</h4>
+                        <p>Validate network configurations</p>
+                    </div>
+                    <div class="tool-item" onclick="openDesignTool('templates')">
+                        <i class="fas fa-layer-group"></i>
+                        <h4>Design Templates</h4>
+                        <p>Pre-built campus network templates</p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="dashboard-card">
+                <div class="card-header">
+                    <h3 class="card-title">Recent Activity</h3>
+                    <i class="fas fa-bell card-icon"></i>
+                </div>
+                <div class="activity-feed">
+                    <div class="activity-item">
+                        <div class="activity-icon">
+                            <i class="fas fa-upload"></i>
+                        </div>
+                        <div class="activity-content">
+                            <p><strong>Design uploaded</strong> for Admin Building project</p>
+                            <span class="activity-time">1 hour ago</span>
+                        </div>
+                    </div>
+                    <div class="activity-item">
+                        <div class="activity-icon">
+                            <i class="fas fa-comment"></i>
+                        </div>
+                        <div class="activity-content">
+                            <p><strong>Client feedback</strong> received on Security Upgrade</p>
+                            <span class="activity-time">4 hours ago</span>
+                        </div>
+                    </div>
+                    <div class="activity-item">
+                        <div class="activity-icon">
+                            <i class="fas fa-file-alt"></i>
+                        </div>
+                        <div class="activity-content">
+                            <p><strong>Requirements updated</strong> for Campus Security project</p>
+                            <span class="activity-time">1 day ago</span>
+                        </div>
+                    </div>
+                    <div class="activity-item">
+                        <div class="activity-icon">
+                            <i class="fas fa-check"></i>
+                        </div>
+                        <div class="activity-content">
+                            <p><strong>Design approved</strong> for Library project</p>
+                            <span class="activity-time">2 days ago</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="dashboard-card">
+            <div class="card-header">
+                <h3 class="card-title">Performance Metrics</h3>
+                <div class="card-actions">
+                    <select class="form-select">
+                        <option>Last 30 days</option>
+                        <option>Last 3 months</option>
+                        <option>Last 6 months</option>
+                        <option>Last year</option>
+                    </select>
+                </div>
+            </div>
+            <div class="metrics-grid">
+                <div class="metric-item">
+                    <h4>Projects Completed</h4>
+                    <div class="metric-value">23</div>
+                    <div class="metric-trend positive">
+                        <i class="fas fa-arrow-up"></i> +15% from last period
+                    </div>
+                </div>
+                <div class="metric-item">
+                    <h4>Average Completion Time</h4>
+                    <div class="metric-value">4.2 weeks</div>
+                    <div class="metric-trend positive">
+                        <i class="fas fa-arrow-down"></i> -0.8 weeks improvement
+                    </div>
+                </div>
+                <div class="metric-item">
+                    <h4>Client Satisfaction</h4>
+                    <div class="metric-value">4.9/5</div>
+                    <div class="metric-trend neutral">
+                        <i class="fas fa-minus"></i> Consistent rating
+                    </div>
+                </div>
+                <div class="metric-item">
+                    <h4>Design Revisions</h4>
+                    <div class="metric-value">1.3 avg</div>
+                    <div class="metric-trend positive">
+                        <i class="fas fa-arrow-down"></i> -0.4 revisions reduced
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="dashboard-card">
+            <div class="card-header">
+                <h3 class="card-title">Quick Actions</h3>
+            </div>
+            <div class="quick-actions">
+                <button class="quick-action-btn" onclick="openDesignTool('new')">
+                    <i class="fas fa-plus"></i>
+                    <span>Start New Design</span>
+                </button>
+                <button class="quick-action-btn" onclick="openDesignTool('PRJ006')">
+                    <i class="fas fa-edit"></i>
+                    <span>Continue Current Design</span>
+                </button>
+                <button class="quick-action-btn">
+                    <i class="fas fa-upload"></i>
+                    <span>Upload Design Files</span>
+                </button>
+                <button class="quick-action-btn">
+                    <i class="fas fa-download"></i>
+                    <span>Export Designs</span>
+                </button>
+                <button class="quick-action-btn">
+                    <i class="fas fa-comments"></i>
+                    <span>Client Communication</span>
+                </button>
+                <button class="quick-action-btn">
+                    <i class="fas fa-book"></i>
+                    <span>Design Guidelines</span>
+                </button>
+            </div>
+        </div>
+    </div>
+
+    <script src="../js/main.js"></script>
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            // Check if user is logged in and has architect role
+            const storedUser = localStorage.getItem('campusnet_user');
+            if (!storedUser) {
+                window.location.href = '../index.html';
+                return;
+            }
+            
+            currentUser = JSON.parse(storedUser);
+            if (currentUser.role !== 'architect') {
+                window.location.href = '../index.html';
+                return;
+            }
+            
+            loadDashboard();
+        });
+
+        function openDesignTool(toolType) {
+            if (toolType === 'new') {
+                showNotification('Opening design tool for new project...', 'info');
+            } else if (toolType === 'topology') {
+                showNotification('Opening Network Topology Designer...', 'info');
+            } else if (toolType === 'calculator') {
+                showNotification('Opening Bandwidth Calculator...', 'info');
+            } else if (toolType === 'validator') {
+                showNotification('Opening Design Validator...', 'info');
+            } else if (toolType === 'templates') {
+                showNotification('Opening Design Templates...', 'info');
+            } else {
+                showNotification(`Opening design tool for project ${toolType}...`, 'info');
+            }
+            // In a real application, this would open the actual design tools
+        }
+
+        // Override the openDesignTool function from main.js for architect-specific behavior
+        window.openDesignTool = openDesignTool;
+    </script>
+</body>
+</html>
