@@ -1,0 +1,369 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Administrator Dashboard - CampusNet Planner</title>
+    <link rel="stylesheet" href="../css/style.css">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+</head>
+<body class="dashboard">
+    <nav class="navbar">
+        <div class="nav-container">
+            <div class="nav-logo">
+                <i class="fas fa-network-wired"></i>
+                <span>CampusNet Planner</span>
+            </div>
+            <div class="nav-menu">
+                <a href="#" class="nav-link">Dashboard</a>
+                <a href="#" class="nav-link">Projects</a>
+                <a href="#" class="nav-link">Architects</a>
+                <a href="#" class="nav-link">Reports</a>
+                <div class="user-info">
+                    <span class="user-name">Michael Chen</span>
+                    <div class="user-avatar">M</div>
+                    <button class="btn btn-outline btn-sm" onclick="logout()">Logout</button>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <div class="dashboard-header">
+        <div class="container">
+            <div class="dashboard-title">
+                <div>
+                    <h1>Administrator Dashboard</h1>
+                    <p>Welcome back, <span class="user-name">Michael Chen</span> - <span class="user-role">Administrator</span></p>
+                </div>
+                <div class="header-actions">
+                    <button class="btn btn-secondary">
+                        <i class="fas fa-chart-bar"></i> Generate Report
+                    </button>
+                    <button class="btn btn-primary">
+                        <i class="fas fa-user-plus"></i> Add Architect
+                    </button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="dashboard-content">
+        <div class="dashboard-grid">
+            <div class="dashboard-card">
+                <div class="card-header">
+                    <div>
+                        <h3 class="card-title">Pending Projects</h3>
+                        <div class="card-value" id="pending-projects">2</div>
+                    </div>
+                    <i class="fas fa-clock card-icon"></i>
+                </div>
+                <p class="card-description">Awaiting assignment</p>
+            </div>
+
+            <div class="dashboard-card">
+                <div class="card-header">
+                    <div>
+                        <h3 class="card-title">Assigned Projects</h3>
+                        <div class="card-value" id="assigned-projects">5</div>
+                    </div>
+                    <i class="fas fa-user-check card-icon"></i>
+                </div>
+                <p class="card-description">Currently with architects</p>
+            </div>
+
+            <div class="dashboard-card">
+                <div class="card-header">
+                    <div>
+                        <h3 class="card-title">Active Architects</h3>
+                        <div class="card-value">8</div>
+                    </div>
+                    <i class="fas fa-users card-icon"></i>
+                </div>
+                <p class="card-description">Available for assignment</p>
+            </div>
+
+            <div class="dashboard-card">
+                <div class="card-header">
+                    <div>
+                        <h3 class="card-title">This Month</h3>
+                        <div class="card-value">12</div>
+                    </div>
+                    <i class="fas fa-chart-line card-icon"></i>
+                </div>
+                <p class="card-description">Projects completed</p>
+            </div>
+        </div>
+
+        <div class="dashboard-card">
+            <div class="card-header">
+                <h3 class="card-title">Project Assignment Queue</h3>
+                <div class="card-actions">
+                    <button class="btn btn-outline btn-sm">
+                        <i class="fas fa-sort"></i> Sort by Priority
+                    </button>
+                    <button class="btn btn-outline btn-sm">
+                        <i class="fas fa-filter"></i> Filter
+                    </button>
+                </div>
+            </div>
+            
+            <div class="table-container">
+                <table class="data-table project-table">
+                    <thead>
+                        <tr>
+                            <th>Project ID</th>
+                            <th>Title</th>
+                            <th>Client</th>
+                            <th>Status</th>
+                            <th>Submitted Date</th>
+                            <th>Priority</th>
+                            <th>Actions</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <!-- Dynamic content loaded via JavaScript -->
+                    </tbody>
+                </table>
+            </div>
+        </div>
+
+        <div class="dashboard-grid">
+            <div class="dashboard-card">
+                <div class="card-header">
+                    <h3 class="card-title">Available Architects</h3>
+                    <i class="fas fa-users-cog card-icon"></i>
+                </div>
+                <div class="architect-list">
+                    <div class="architect-item">
+                        <div class="architect-avatar">
+                            <i class="fas fa-user"></i>
+                        </div>
+                        <div class="architect-info">
+                            <h4>John Smith</h4>
+                            <p>Senior Network Architect</p>
+                            <span class="architect-status available">Available</span>
+                        </div>
+                        <div class="architect-stats">
+                            <span>2 Active Projects</span>
+                        </div>
+                    </div>
+                    <div class="architect-item">
+                        <div class="architect-avatar">
+                            <i class="fas fa-user"></i>
+                        </div>
+                        <div class="architect-info">
+                            <h4>Sarah Johnson</h4>
+                            <p>Network Design Specialist</p>
+                            <span class="architect-status busy">Busy</span>
+                        </div>
+                        <div class="architect-stats">
+                            <span>4 Active Projects</span>
+                        </div>
+                    </div>
+                    <div class="architect-item">
+                        <div class="architect-avatar">
+                            <i class="fas fa-user"></i>
+                        </div>
+                        <div class="architect-info">
+                            <h4>Mike Davis</h4>
+                            <p>Infrastructure Architect</p>
+                            <span class="architect-status available">Available</span>
+                        </div>
+                        <div class="architect-stats">
+                            <span>1 Active Project</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="dashboard-card">
+                <div class="card-header">
+                    <h3 class="card-title">Recent Activity</h3>
+                    <i class="fas fa-bell card-icon"></i>
+                </div>
+                <div class="activity-feed">
+                    <div class="activity-item">
+                        <div class="activity-icon">
+                            <i class="fas fa-plus"></i>
+                        </div>
+                        <div class="activity-content">
+                            <p><strong>New project</strong> submitted by State University</p>
+                            <span class="activity-time">30 minutes ago</span>
+                        </div>
+                    </div>
+                    <div class="activity-item">
+                        <div class="activity-icon">
+                            <i class="fas fa-user-check"></i>
+                        </div>
+                        <div class="activity-content">
+                            <p><strong>Project PRJ005</strong> assigned to Mike Davis</p>
+                            <span class="activity-time">2 hours ago</span>
+                        </div>
+                    </div>
+                    <div class="activity-item">
+                        <div class="activity-icon">
+                            <i class="fas fa-check-circle"></i>
+                        </div>
+                        <div class="activity-content">
+                            <p><strong>Project PRJ003</strong> completed successfully</p>
+                            <span class="activity-time">1 day ago</span>
+                        </div>
+                    </div>
+                    <div class="activity-item">
+                        <div class="activity-icon">
+                            <i class="fas fa-file-alt"></i>
+                        </div>
+                        <div class="activity-content">
+                            <p><strong>Weekly report</strong> generated and sent</p>
+                            <span class="activity-time">2 days ago</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="dashboard-card">
+            <div class="card-header">
+                <h3 class="card-title">Project Analytics</h3>
+                <div class="card-actions">
+                    <select class="form-select">
+                        <option>Last 30 days</option>
+                        <option>Last 3 months</option>
+                        <option>Last 6 months</option>
+                        <option>Last year</option>
+                    </select>
+                </div>
+            </div>
+            <div class="analytics-grid">
+                <div class="analytics-item">
+                    <h4>Completion Rate</h4>
+                    <div class="analytics-value">94%</div>
+                    <div class="analytics-trend positive">
+                        <i class="fas fa-arrow-up"></i> +5% from last month
+                    </div>
+                </div>
+                <div class="analytics-item">
+                    <h4>Average Timeline</h4>
+                    <div class="analytics-value">6.2 weeks</div>
+                    <div class="analytics-trend negative">
+                        <i class="fas fa-arrow-down"></i> +0.3 weeks from last month
+                    </div>
+                </div>
+                <div class="analytics-item">
+                    <h4>Client Satisfaction</h4>
+                    <div class="analytics-value">4.8/5</div>
+                    <div class="analytics-trend positive">
+                        <i class="fas fa-arrow-up"></i> +0.2 from last month
+                    </div>
+                </div>
+                <div class="analytics-item">
+                    <h4>Resource Utilization</h4>
+                    <div class="analytics-value">87%</div>
+                    <div class="analytics-trend neutral">
+                        <i class="fas fa-minus"></i> No change
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Assignment Modal -->
+    <div id="assignModal" class="modal">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h2>Assign Project</h2>
+                <span class="close" onclick="hideAssignModal()">&times;</span>
+            </div>
+            <div class="modal-body">
+                <form id="assignForm">
+                    <div class="form-group">
+                        <label for="projectSelect">Project</label>
+                        <select id="projectSelect" name="project" required>
+                            <option value="">Select a project...</option>
+                        </select>
+                    </div>
+                    <div class="form-group">
+                        <label for="architectSelect">Architect</label>
+                        <select id="architectSelect" name="architect" required>
+                            <option value="">Select an architect...</option>
+                            <option value="john-smith">John Smith - Available (2 projects)</option>
+                            <option value="mike-davis">Mike Davis - Available (1 project)</option>
+                            <option value="sarah-rodriguez">Sarah Rodriguez - Available (3 projects)</option>
+                        </select>
+                    </div>
+                    <div class="form-group">
+                        <label for="priority">Priority</label>
+                        <select id="priority" name="priority" required>
+                            <option value="low">Low</option>
+                            <option value="medium" selected>Medium</option>
+                            <option value="high">High</option>
+                            <option value="urgent">Urgent</option>
+                        </select>
+                    </div>
+                    <div class="form-group">
+                        <label for="deadline">Expected Deadline</label>
+                        <input type="date" id="deadline" name="deadline" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="notes">Assignment Notes</label>
+                        <textarea id="notes" name="notes" rows="3" placeholder="Additional instructions or requirements..."></textarea>
+                    </div>
+                    <div class="form-actions">
+                        <button type="button" class="btn btn-secondary" onclick="hideAssignModal()">Cancel</button>
+                        <button type="submit" class="btn btn-primary">Assign Project</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+
+    <script src="../js/main.js"></script>
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            // Check if user is logged in and has admin role
+            const storedUser = localStorage.getItem('campusnet_user');
+            if (!storedUser) {
+                window.location.href = '../index.html';
+                return;
+            }
+            
+            currentUser = JSON.parse(storedUser);
+            if (currentUser.role !== 'admin') {
+                window.location.href = '../index.html';
+                return;
+            }
+            
+            loadDashboard();
+            initializeAdminFunctions();
+        });
+
+        function initializeAdminFunctions() {
+            // Set minimum date for deadline to today
+            const deadlineInput = document.getElementById('deadline');
+            if (deadlineInput) {
+                const today = new Date();
+                deadlineInput.min = today.toISOString().split('T')[0];
+            }
+        }
+
+        function showAssignModal(projectId) {
+            document.getElementById('assignModal').style.display = 'block';
+            // Pre-select the project if provided
+            if (projectId) {
+                document.getElementById('projectSelect').value = projectId;
+            }
+        }
+
+        function hideAssignModal() {
+            document.getElementById('assignModal').style.display = 'none';
+        }
+
+        function assignProject(projectId) {
+            showAssignModal(projectId);
+        }
+
+        // Override the assignProject function from main.js for admin-specific behavior
+        window.assignProject = assignProject;
+    </script>
+</body>
+</html>
